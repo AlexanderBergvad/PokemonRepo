@@ -1,0 +1,153 @@
+﻿@page
+@model PokemonRepo.UI.Pages.FightingCage.EditProfileModel
+@{
+}
+<style>
+    .image img {
+        transition: all 0.5s
+    }
+
+    .card:hover .image img {
+        transform: scale(1.2)
+    }
+
+    .btn {
+        height: 240px;
+        width: 240px;
+        border-radius: 50%
+    }
+
+    .name {
+        font-size: 22px;
+        font-weight: bold
+    }
+
+    .idd {
+        font-size: 14px;
+        font-weight: 600
+    }
+
+    .idd1 {
+        font-size: 12px
+    }
+
+    .number {
+        font-size: 22px;
+        font-weight: bold
+    }
+
+    .follow {
+        font-size: 12px;
+        font-weight: 500;
+        color: #444444
+    }
+
+    .btn1 {
+        height: 40px;
+        width: 40px;
+        border: none;
+        background-color: transparent;
+        color: #aeaeae;
+        font-size: 15px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .text span {
+        font-size: 13px;
+        color: rgb(11 19 27);
+        font-weight: 500
+    }
+
+    .icons i {
+        font-size: 30px;
+    }
+
+    hr .new1 {
+        border: 1px solid
+    }
+
+    .join {
+        font-size: 14px;
+        color: #a0a0a0;
+        font-weight: bold
+    }
+
+    .date {
+        background-color: #ccc
+    }
+</style>
+<body>
+    <div class="container bootstrap snippets bootdey" style="background: black; color: white; border: 5px solid yellow;">
+        <h1 class="text-primary" style="color: yellow; margin-top: 20px;">Edit Profile</h1>
+        <hr>
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <img src="~/Images/@Model.ProfileUser.PhotoPath" style="width: 200px; height: 250px;" asp-append-version="true">
+                        <h6>Upload an other photo.</h6>
+                        <input type="file" class="form-control" asp-for="@Model.Photo" value="@Model.ProfileUser.PhotoPath">
+                    </div>
+                </div>
+
+                <!-- edit form column -->
+                <div class="col-md-9 personal-info  justify-content-center">
+                    <h3>Personal info</h3>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Username: </label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="@Model.ProfileUser.UserName" asp-for="@Model.Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="email" value="@Model.ProfileUser.Email" asp-for="@Model.Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Old Password:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="password" placeholder="*********" asp-for="@Model.Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">New password:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="password" placeholder="*********" asp-for="@Model.NewPassword">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">About me:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="@Model.ProfileUser.AboutMe" asp-for="@Model.AboutMe">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Favorite Pokemon</label>
+                        <div class="col-lg-8">
+                            <div class="ui-select">
+                                <select id="user_time_zone" class="form-control" value="@Model.ProfileUser.FavoritPokemon" asp-for="@Model.FavoritePok">
+                                    @foreach (var pokemon in Model.pokemons)
+                                    {
+                                        <option>@pokemon</option>
+
+                                    }
+                                </select>
+                            </div>
+                            <div class="justify-content-end" style="margin-top: 10px;">
+                                <button for="Join" class="submit text-dark float-right" style="font-size: 40px; background: transparent; outline: none;"><i id="Join" class="fas fa-save"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>

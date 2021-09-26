@@ -1,0 +1,63 @@
+﻿@page
+@model PokemonRepo.UI.Pages.CreatePokemontrainerModel
+@{
+}
+
+<body style=" height: auto; align-content: center; justify-content: center;">
+    <div class="row" style="height: auto; ">
+        <div class="col-6 justify-content-center" 
+             style="Padding-left: 0px;
+        padding-right: 0px;
+        background-color: black;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+        border: 5px solid yellow;">
+            <div class="Thiscontainer">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="Thiscard">
+                        <div class="Thiscard-header">
+                            <h1 style="color: greenyellow; margin-top: 20px;">Create Account</h1>
+                        </div>
+                        <div class="card-body">
+                            <form method="post">
+                                <div class="Thisinput-group form-group">
+                                    <div class="Thisinput-group-prepend">
+                                        <div asp-validation-summary="All" class="text-danger"></div>
+                                    </div>
+                                    <div class="Thisinput-group-prepend">
+                                        <span class="input-group-text"><i id="username" class="fas fa-user"></i></span>
+                                        <input for="username" type="text" placeholder="username" asp-for="ControlUser.Username" />
+                                    </div>
+                                </div>
+                                <div class="Thisinput-group form-group">
+                                    <div class="Thisinput-group-prepend">
+                                        <span class="input-group-text"><i id="Email" class="fas fa-mail-bulk"></i></span>
+                                        <input for="Email" type="email" placeholder="Email" asp-for="ControlUser.Email" />
+                                    </div>
+                                </div>
+                                <div class="Thisinput-group form-group">
+                                    <div class="Thisinput-group-prepend">
+                                        <span class="input-group-text"><i id="password" class="fas fa-key"></i></span>
+                                        <input for="password" type="password" placeholder="password" Asp-for="ControlUser.Password"/>
+                                    </div>
+                                    <div class="Thisinput-group-prepend">
+                                        <input for="password" type="password" placeholder="Re-enter Password" asp-for="ControlUser.ConfirmPassword"/>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="text-align:center;">
+                                    <a class="nav-link text-light" style="text-align:center;" asp-area="" asp-page="/Login">- Already Member -</a>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn float-right btn-outline-light">Create Account</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6" style="Padding-left: 0px; padding-right: 0px; Background-color: black; Border-top-right-radius: 40px; border-bottom-right-radius: 40px;">  
+            <img class"center" src="~/Poketrainers-min.jpg" style="max-width: 100%; height: 100%; border-top-right-radius: 40px; border-bottom-right-radius: 40px;" />
+        </div>
+    </div>
+</body>

@@ -1,0 +1,72 @@
+﻿@page
+@model PokemonRepo.UI.Pages.PokemonsModel
+@using PokemonRepo.Data;
+@{
+}
+<div class="row">
+    <a asp-page="/Favorites">Show my favorites</a>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-end">
+                <form action="" method="post">
+                    <div class="input-group rounded" style=" background-color: white; border-color: black;">
+                        <select asp-for="SearchBy" asp-items="Html.GetEnumSelectList<SearchFilters>()" style="border: none;">
+                        </select>
+                        <input type="search" asp-for="SearchString" class="form-control rounded" placeholder="Search" style="border:none;" />
+                        <button class="input-group-text border-0" style="background-color: transparent;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @for (int i = 0; i < @Model.Pokemons.Count; i++)
+        {
+            if (i % 3 == 0)
+            {
+            @:</div><div class="row">
+            }
+            <div class="col-4" style="min-width:250px;">
+                <div class="Mycard-block Mycard-1">
+                    <div class="row">
+                        <div class="col" style="margin: 10px 10px 10px 10px">
+                            <img src="@Model.Pokemons[i].imageString" alt="Avatar" style="width:100%;height:100%;">
+                        </div>
+                        <div class="col">
+                            <p>Height: <br /> @Model.Pokemons[i].Height</p>
+                            <p>Weight: <br /> @Model.Pokemons[i].Weight</p>
+                            <p>Move: <br /> @Model.Pokemons[i].Moves.First().move.Name</p>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin: 0 10px 15px 10px">
+                        <div class="col-7" style="margin-right: 10px;">
+                            <h1 style="font-family: 'Segoe Script'; font-size: 20px">@Model.Pokemons[i].Name.ToUpper()</h1>
+                        </div>
+                        <div class="col-4">
+                            <form action="" method="post">
+                                <input value="@Model.Pokemons[i].Name" asp-for="FavoritePokemon" hidden />
+                                <input value="@Model.SearchString" asp-for="SearchString" hidden />
+                                <input value="@Model.SearchBy" asp-for="SearchBy" hidden />
+                                <a href="#" onclick="this.parentNode.submit()">
+                                    @if (@Model.FavoritePokemons.FirstOrDefault(p => p.Name == Model.Pokemons[i].Name) != null)
+                                    {
+                                        <i class="fas fa-star"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="far fa-star"></i>
+                                    }
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

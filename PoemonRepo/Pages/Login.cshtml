@@ -1,0 +1,56 @@
+﻿@page
+@model PokemonRepo.UI.Pages.LoginModel
+@{
+
+}
+<body style="align-content: center; justify-content: center;">
+    <div class="row">
+        <div class="col-6" style=" Padding-left: 0px; padding-right: 0px; background-color: black;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;">
+            <img class"center" src="~/PokemonCards.jpg" style="max-width: 100%; height: 100%; border-top-left-radius: 40px; border-bottom-left-radius: 40px;" />
+        </div>
+        <div class="col-6 justify-content-center" 
+        style="Background-color: black;
+        Border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        border: 5px solid yellow;">
+            <div class="Thiscontainer">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="Thiscard">
+                        <div class="Thiscard-header">
+                            <h1 style="color: greenyellow; margin-top: 20px;">Sign In</h1>
+                        </div>
+                        <div class="card-body">
+                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                            <span asp-validation-for="@Model.Username" class="text-danger"></span>
+
+                            <form method="post">
+                                <div class="Thisinput-group form-group">
+                                    <div class="Thisinput-group-prepend">
+                                        <span class="input-group-text"><i id="username" class="fas fa-user"></i></span>
+                                    </div>
+                                    <input for="username" type="text" asp-for="@Model.Username" placeholder="username" />
+                                </div>
+                                <div class="Thisinput-group form-group">
+                                    <div class="Thisinput-group-prepend">
+                                        <span class="input-group-text"><i id="password" class="fas fa-key"></i></span>
+                                    </div>
+                                    <input for="password" type="password" asp-for="@Model.Password" placeholder="password" />
+                                </div>
+                                <div class="form-group" style="text-align:center;">
+                                    <a class="nav-link text-light" style="text-align:center;" asp-area="" asp-page="/CreatePokemontrainer">- Create Account -</a>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn float-right btn-outline-light">Sign In</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+   

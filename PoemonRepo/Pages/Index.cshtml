@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center text-white">
+                    <img src="~/Pokemonlogo.png" height="300" width="700" />
+                    <h1 class="display-5 fw-normal" style="margin-top: 20px;">Welcome To Pokemon Master</h1>
+                    <hr />
+
+                    <p class="home-desc mt-4 f-17">
+                        This is a comunity for those of you who love pokemon, you can chat in all of our rooms. You can find friends or opponent for our game in fighting mode.
+                    </p>
+                    <hr />
+                    <div class="pt-2 mt-5">
+                        @if (Model._signInManager.IsSignedIn(User))
+                        {
+                            <a asp-page="/FightingCage/MyProfile" class="btn btn-dark btn-round  home-button">
+                                My profile<span class="play-shadow ms-2" data-bs-toggle="modal" data-bs-target="#watchvideomodal"><span class="home-btn"><i class="mdi mdi-play text-center"></i></span></span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-page="/CreatePokemontrainer" class="btn btn-dark btn-round  home-button">
+                                Create Account<span class="play-shadow ms-2" data-bs-toggle="modal" data-bs-target="#watchvideomodal"><span class="home-btn"><i class="mdi mdi-play text-center"></i></span></span>
+                            </a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

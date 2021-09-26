@@ -1,0 +1,41 @@
+﻿@page
+@model PokemonRepo.UI.Pages.FightingCage.ChatRoomsModel
+@{
+}
+<div class="row">
+    <a asp-page="CreateChatroom">Create new room</a>
+</div>
+<div class="row" style="margin-top: 20px;">
+    @for (int i = 0; i < @Model.chatRooms.Count; i++)
+    {
+            @if(i%2==0)
+                    {
+                        @:</div><div class="row" style="margin-top: 20px;">
+                    }
+            <div class="col-6">
+                <div class="card" style="border: 5px solid yellow;">
+                    <div class="card-header" style="background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 77%);">
+                        <div class="row">
+                            <div class"col-9">
+                                <h3 style="color: lightgoldenrodyellow">@Model.chatRooms[i].ChatRoomName</h3>
+                                <p style="font-size: 12px;">Created by: @Model.chatRooms[i].Owner</p>
+                            </div>
+                            <div class"col-3" style="margin-left: auto;">
+                                <a for="Join" class="nav-link text-dark" style="font-size: 30px;" asp-route-id="@Model.chatRooms[i].ChatRoomId" asp-page="/FightingCage/ThisChatroom"><i id="Join" class="fas fa-sign-in-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <div class"col-9">
+                                <p>@Model.chatRooms[i].Description</p>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        
+    }
+</div>
+
+

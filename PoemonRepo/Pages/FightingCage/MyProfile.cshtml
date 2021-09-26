@@ -1,0 +1,106 @@
+﻿@page
+@model PokemonRepo.UI.Pages.FightingCage.MyProfile
+@{
+}
+<style>
+    .image img {
+        transition: all 0.5s
+    }
+
+    .card:hover .image img {
+        transform: scale(1.3)
+    }
+
+    .btn {
+        height: 240px;
+        width: 240px;
+        border-radius: 50%
+    }
+
+    .name {
+        font-size: 22px;
+        font-weight: bold
+    }
+
+    .idd {
+        font-size: 14px;
+        font-weight: 600
+    }
+
+    .idd1 {
+        font-size: 12px
+    }
+
+    .number {
+        font-size: 22px;
+        font-weight: bold
+    }
+
+    .follow {
+        font-size: 12px;
+        font-weight: 500;
+        color: #444444
+    }
+
+    .btn1 {
+        height: 40px;
+        width: 40px;
+        border: none;
+        background-color: transparent;
+        color: #aeaeae;
+        font-size: 15px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .text span {
+        font-size: 13px;
+        color: rgb(11 19 27);
+        font-weight: 500
+    }
+
+    .icons i {
+        font-size: 30px;
+    }
+
+    hr .new1 {
+        border: 1px solid
+    }
+
+    .join {
+        font-size: 14px;
+        color: #a0a0a0;
+        font-weight: bold
+    }
+
+    .date {
+        background-color: #ccc
+    }
+</style>
+
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4" style="border: 5px solid yellow; height: 700px; width: 400px; background: rgb(255,255,255); background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(149,149,149,1) 30%, rgba(78,78,78,1) 60%, rgba(0,0,0,1) 100%);">
+        <div class=" image d-flex flex-column justify-content-center align-items-center">
+            <button class="btn btn-secondary">
+                <img src="~/Images/@Model.ProfileUser.PhotoPath" height="200" width="200" />
+            </button>
+            <span class="name mt-3">@Model.ProfileUser.UserName</span>
+            <span class="idd"></span>
+            <div class="text mt-3">
+                <span>
+                        @Model.ProfileUser.AboutMe
+
+                    <br />
+                    <br />
+                        @Model.ProfileUser.FavoritPokemon
+                </span>
+            </div>
+            <div class=" d-flex mt-2">
+                    <a for="Join" class="nav-link text-dark" style="font-size: 40px;" asp-route-id="" asp-page="/FightingCage/EditProfile"><i id="Join" class="fas fa-user-edit"></i></a>
+            </div>
+            <hr />
+            <div class=" px-2 rounded mt-4 date "> <span class="join">@Model.ProfileUser.JoinedDate.ToString("d")</span> </div>
+        </div>
+    </div>
+</div>
+
